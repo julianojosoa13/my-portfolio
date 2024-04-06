@@ -6,6 +6,7 @@ import myPicture from './me.jpg';
 import animationData from './code.json'; // Import your Lottie file
 import Dock from './components/dock';
 import Clouds from './components/clouds';
+import { Helmet } from 'react-helmet';
 
 const changeColor = keyframes`
   0% { background-color: #f0f9ff; } /* Lighter blue */
@@ -77,15 +78,25 @@ const App = () => {
   };
 
   return (
-    <Wrapper>
-      <Picture src={myPicture} alt="Juliano Josoa" />
-      <Title>Coming Soon!</Title>
-      <Subtitle>Stay tuned for exciting updates!</Subtitle>
-      <LottieAnimation>
-        <Lottie options={defaultOptions} />
-      </LottieAnimation>
-      <Dock />
-    </Wrapper>
+    <div>
+      <Helmet>
+        <title>Your App Title</title>
+        <meta property="og:title" content="Juliano Josoa" />
+        <meta property="og:description" content="Juliano Josoa, Fullstack Developer" />
+        <meta property="og:image" content="https://efyjgqoglnwvwfahlvtz.supabase.co/storage/v1/object/public/branding/preview.png" />
+        <meta property="og:url" content="https://juliano-josoa.dev" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+      <Wrapper>
+        <Picture src={myPicture} alt="Juliano Josoa" />
+        <Title>Coming Soon!</Title>
+        <Subtitle>Stay tuned for exciting updates!</Subtitle>
+        <LottieAnimation>
+          <Lottie options={defaultOptions} />
+        </LottieAnimation>
+        <Dock />
+      </Wrapper>
+    </div>
   );
 };
 
