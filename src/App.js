@@ -78,25 +78,15 @@ const App = () => {
   };
 
   return (
-    <div>
-      <Helmet>
-        <title>Your App Title</title>
-        <meta property="og:title" content="Juliano Josoa" />
-        <meta property="og:description" content="Juliano Josoa, Fullstack Developer" />
-        <meta property="og:image" content="https://efyjgqoglnwvwfahlvtz.supabase.co/storage/v1/object/public/branding/preview.png" />
-        <meta property="og:url" content="https://juliano-josoa.dev" />
-        <meta property="og:type" content="website" />
-      </Helmet>
-      <Wrapper>
-        <Picture src={myPicture} alt="Juliano Josoa" />
-        <Title>Coming Soon!</Title>
-        <Subtitle>Stay tuned for exciting updates!</Subtitle>
-        <LottieAnimation>
-          <Lottie options={defaultOptions} />
-        </LottieAnimation>
-        <Dock />
-      </Wrapper>
-    </div>
+    <Wrapper>
+      <Picture src={myPicture} alt="Juliano Josoa" />
+      <Title>Coming Soon!</Title>
+      <Subtitle>Stay tuned for exciting updates!</Subtitle>
+      <LottieAnimation>
+        <Lottie options={defaultOptions} />
+      </LottieAnimation>
+      <Dock />
+    </Wrapper>
   );
 };
 
