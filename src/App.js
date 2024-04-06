@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import Lottie from 'react-lottie';
 
@@ -6,13 +6,15 @@ import myPicture from './me.jpg';
 import animationData from './code.json'; // Import your Lottie file
 import Dock from './components/dock';
 import Clouds from './components/clouds';
-import { Helmet } from 'react-helmet';
+
+import DrawerNavigation from './components/drawerNavigation'; 
+import HamburgerButton from './components/hamburgerButton';
 
 const changeColor = keyframes`
   0% { background-color: #f0f9ff; } /* Lighter blue */
   20% { background-color: #ffe6f2; } /* Pink */
   40% { background-color: #fff9db; } /* Yellow */
-  60% { background-color: #ffffff; } /* White */
+  60% { background-color: #f4d4fe; } /* White */
   80% { background-color: #e4f7e7; } /* Green */
   100% { background-color: #f0f9ff; } /* Lighter blue */
 `;
@@ -47,12 +49,14 @@ const Title = styled.h1`
   margin: 0 auto;
   letter-spacing: 0.15em;
   animation: ${typing} 3s steps(40, end), ${blinkCaret} 0.75s step-end infinite;
+  z-index: 20;
 `;
 
 const Subtitle = styled.h2`
   font-family: "M PLUS Code Latin", monospace;
   font-size: 2rem;
   text-align: center;
+  z-index: 20;
 `;
 
 const Picture = styled.img`
@@ -60,16 +64,32 @@ const Picture = styled.img`
   max-height: 200px;
   width: auto;
   height: auto;
-  border-radius: 50px;
-  margin-bottom: 20px;
+
+  z-index: 20;
+
+  border: 5px solid #3498db; /* Solid blue border */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: transform 0.2s; /* Smooth transition for hover effect */
+
+  &:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+  }
 `;
 
 const LottieAnimation = styled.div`
   width: 200px;
   height: 200px;
+  z-index: 10
 `;
 
 const App = () => {
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const toggleDrawer = () => {
+    setDrawerOpen(!drawerOpen);
+  };  
+
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -81,13 +101,21 @@ const App = () => {
 
   return (
     <Wrapper>
+      <HamburgerButton  onClick={toggleDrawer} />
+      <DrawerNavigation show={drawerOpen} setShow={setDrawerOpen} />
+
       <Picture src={myPicture} alt="Juliano Josoa" />
-      <Title>Coming Soon!</Title>
-      <Subtitle>Stay tuned for exciting updates!</Subtitle>
+
+      <Title>Hi, I am Juliano!</Title>
+      <Subtitle>I am super excited to work with you!</Subtitle>
+
       <LottieAnimation>
         <Lottie options={defaultOptions} />
       </LottieAnimation>
+
       <Dock />
+      <Clouds cloudsCount={20}/>
+
     </Wrapper>
   );
 };

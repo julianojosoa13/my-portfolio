@@ -3,22 +3,21 @@ import styled, { keyframes } from 'styled-components';
 
 const moveClouds = keyframes`
   0%, 100% {
-    transform: translateX(0%);
+    transform: translateX(-100%);
   }
   50% {
-    transform: translateX(-1000);
+    transform: translateX(-100%);
   }
 `;
-
 const Cloud = styled.div`
   position: absolute;
-  top: ${() => Math.random() * 80 + 10}%; /* Random vertical position */
-  left: 0; /* Start at the left edge of the screen */
-  width: ${() => Math.random() * 100 + 50}px; /* Random width */
-  height: ${() => Math.random() * 50 + 20}px; /* Random height */
+  top: ${() => Math.random() * 80 + 10}%; 
+  left: ${() => Math.random() * 100}%; /* Randomize the starting horizontal position */
+  width: ${() => Math.random() * 100 + 50}px; 
+  height: ${() => Math.random() * 50 + 20}px; 
   background-color: white;
   border-radius: 50%;
-  animation: ${moveClouds} ${() => Math.random() * 20 + 10}s linear infinite; /* Random speed */
+  animation: ${moveClouds} ${() => Math.random() * 20 + 10}s linear infinite;
 `;
 
 const CloudsContainer = styled.div`
@@ -29,8 +28,8 @@ const CloudsContainer = styled.div`
   height: 100%;
 `;
 
-const Clouds = () => {
-  const numClouds = 5; // Number of clouds
+const Clouds = ({cloudsCount=15}) => {
+  const numClouds = cloudsCount; // Number of clouds
   const clouds = Array.from({ length: numClouds }).map((_, index) => (
     <Cloud key={index} style={{ animationDelay: `${Math.random() * 10}s` }} />
   ));
@@ -38,4 +37,5 @@ const Clouds = () => {
   return <CloudsContainer>{clouds}</CloudsContainer>;
 };
 
-export default Clouds;
+export default Clouds; 
+

@@ -12,7 +12,7 @@ const DockWrapper = styled.div`
   display: flex;
   justify-content: space-around;
   width: 300px;
-  z-index: 1000;
+  z-index: 20;
 `;
 
 const Icon = styled.a`
