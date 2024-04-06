@@ -37,8 +37,9 @@ const blinkCaret = keyframes`
   50% { border-color: #333 }
 `;
 
-const Title = styled.h1`
-  font-size: 2.5rem;
+const Title = styled.h1`  
+  font-family: "Dancing Script", cursive;
+  font-size: 3rem;
   margin-bottom: 2rem;
   overflow: hidden;
   border-right: 0.15em solid #333;
@@ -49,6 +50,7 @@ const Title = styled.h1`
 `;
 
 const Subtitle = styled.h2`
+  font-family: "M PLUS Code Latin", monospace;
   font-size: 2rem;
   text-align: center;
 `;
