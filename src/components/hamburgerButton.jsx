@@ -22,7 +22,7 @@ const HamburgerIcon = styled.div`
   height: 3px;
   background-color: black;
   margin: 6px 10px;
-  margin-top: 3px;
+  margin-top:5px;
   transition: 0.4s;
 `;
 

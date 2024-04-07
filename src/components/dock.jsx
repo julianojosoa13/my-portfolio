@@ -7,11 +7,11 @@ const DockWrapper = styled.div`
   left: 50%;
   transform: translateX(-50%);
   background-color: #333;
-  padding: 10px 20px;
+  padding: 20px 20px;
   border-radius: 10px 10px 0 0;
   display: flex;
   justify-content: space-around;
-  width: 300px;
+  width: 280px;
   z-index: 20;
 `;
 
