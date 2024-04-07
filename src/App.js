@@ -21,12 +21,14 @@ const changeColor = keyframes`
 
 const Wrapper = styled.div`
   display: flex;
+  flex: 1;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 100vh;
   font-family: 'Arial', sans-serif;
-  animation: ${changeColor} 10s infinite alternate;
+  background-color: #3333ff;
+  // animation: ${changeColor} 10s infinite alternate;
 `;
 
 const typing = keyframes`
@@ -114,7 +116,7 @@ const App = () => {
       </LottieAnimation>
 
       <Dock />
-      <Clouds cloudsCount={20}/>
+      {/* <Clouds cloudsCount={20}/> */}
 
     </Wrapper>
   );
