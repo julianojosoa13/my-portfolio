@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const DockWrapper = styled.div`
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
