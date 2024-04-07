@@ -5,10 +5,11 @@ import Lottie from 'react-lottie';
 import myPicture from './me.jpg';
 import animationData from './code.json'; // Import your Lottie file
 import Dock from './components/dock';
-import Clouds from './components/clouds';
+import { FaPlay } from 'react-icons/fa';
 
 import DrawerNavigation from './components/drawerNavigation'; 
 import HamburgerButton from './components/hamburgerButton';
+import Button from './components/Button';
 
 const changeColor = keyframes`
   0% { background-color: #f0f9ff; } /* Lighter blue */
@@ -110,6 +111,8 @@ const App = () => {
 
       <Title>Hi, I am Juliano!</Title>
       <Subtitle>I am super excited to work with you!</Subtitle>
+
+      <Button text="Take a tour" icon={<FaPlay />}/>
 
       <LottieAnimation>
         <Lottie options={defaultOptions} />
