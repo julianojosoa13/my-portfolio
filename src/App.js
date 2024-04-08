@@ -25,8 +25,8 @@ const Wrapper = styled.div`
   flex: 1;
   flex-direction: column;
   justify-content: center;
-  gap: 25px;
   align-items: center;
+  gap: 15px;
   height: 100vh;
   font-family: 'Arial', sans-serif;
   background-color: #3333ff;
