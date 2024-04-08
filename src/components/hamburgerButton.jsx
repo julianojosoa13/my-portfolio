@@ -33,15 +33,15 @@ const Button = styled.button`
   &::after {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
+    top: -50%;
+    left: -50%;
+    transform: translate(-50%, -50%) scale(1.5);
     width: 200%;
     height: 200%;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.25);
     border-radius: 50%;
     z-index: -1;
-    animation: ${pulse} 2s infinite;
+    animation: ${pulse} 3s infinite;
   }
 
   &:hover {
