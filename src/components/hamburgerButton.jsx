@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
-const wave = keyframes`
+const pulse = keyframes`
   0% {
     transform: scale(0);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1);
     opacity: 0.5;
   }
   100% {
@@ -24,6 +28,25 @@ const Button = styled.button`
   cursor: pointer;
   border-radius: 30px;
   overflow: hidden;
+  transition: all 0.4s;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 200%;
+    height: 200%;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    z-index: -1;
+    animation: ${pulse} 2s infinite;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 const HamburgerIcon = styled.div`
@@ -35,37 +58,12 @@ const HamburgerIcon = styled.div`
   transition: 0.4s;
 `;
 
-const Shockwave = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100px;
-  height: 100px;
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 50%;
-  animation: ${wave} 0.5s ease-out;
-`;
-
-const HamburgerButton = ({ onClick }) => {
-  const [showShockwave, setShowShockwave] = useState(false);
-
-  const handleButtonClick = () => {
-    onClick();
-    setShowShockwave(true);
-    setTimeout(() => {
-      setShowShockwave(false);
-    }, 500);
-  };
-
-  return (
-    <Button onClick={handleButtonClick}>
-      <HamburgerIcon />
-      <HamburgerIcon />
-      <HamburgerIcon />
-      {showShockwave && <Shockwave />}
-    </Button>
-  );
-};
+const HamburgerButton = ({ onClick }) => (
+  <Button onClick={onClick}>
+    <HamburgerIcon />
+    <HamburgerIcon />
+    <HamburgerIcon />
+  </Button>
+);
 
 export default HamburgerButton;
